@@ -27,7 +27,7 @@ RUN apt-get update && apt-get install -y \
 # Copy runtime binaries and config files
 COPY --from=builder /app/opencv.ini     /app/opencv.ini
 COPY --from=builder /app/cpp_web_server /app/cpp_web_server
-COPY --from=builder /app/input.png      /app/input.png
+COPY --from=builder /app/image.png      /app/image.png
 
 
 # Explicitly tell Tesseract where to find trained data files
