@@ -5,7 +5,7 @@
 		 //
 		 if (readConfigFile)
 		 {
-		 	this->ReadConfigFile("tesseract.ini");
+		 	this->ReadConfigFile("opencv.ini");
 		 }
 
 	}
