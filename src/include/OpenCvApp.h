@@ -1,45 +1,49 @@
-///////////////////////////////////////////////////////////////////////////
-// TESSERACT.DLL
-///////////////////////////////////////////////////////////////////////////
-
-#ifndef TESSERACTAPP_H // include guard
-#define TESSERACTAPP_H
+#ifndef OPENCVDLL_H // include guard
+#define OPENCVDLL_H
 #endif
 
-#include <algorithm>
-#include <string>
-#include <vector>
+#include <opencv2/opencv.hpp>
 #include <iostream>
 #include <fstream>
-#include <sstream>
-#include <memory>
-#include <random>
-#include <regex>
-#include <cctype>
-#include <map>
-
-#include <tesseract/baseapi.h>
-#include <leptonica/allheaders.h>
-
-#define DLL_EXPORT extern "C" __declspec(dllexport) __stdcall
-
-using namespace std;
+#include <vector>
+#include <string>
+#include <complex>
+#include <cstdlib> // For rand() and srand()
+#include <ctime>   // For time()
+#include <random>  // For random number generation
 
 #pragma hdrstop
 #pragma argsused
 #pragma once
 
-class TesseractApp 
+using namespace cv;
+using namespace std;
+
+#define DLL_EXPORT extern "C" __declspec(dllexport) __stdcall 
+
+using namespace std;
+
+class OpenCvApp
 {
-   public :
+    public :
         //
-        TesseractApp();
-        ~TesseractApp();
+        OpenCvApp();
+        ~OpenCvApp();
         //
-        const char*  GetTesseractOcrOutput(); 
-        const char*  GetTesseractOcrOutputPath(const char* imagePath);
-        const char*  GetTesseractVersion();
-        const char*  GetTesseractAppVersion(); 
+        const char*              GetOpenCvAPIVersion();
+        const char*              GetOpenCvAppVersion();
+        const char*              OpenCvReadImage();
+        const char*              OpenCvReadImagePath(char* path);
+        vector<string>           detectShapes(const cv::Mat& inputImage) ; 
+        Mat                      generateMandelbrot(int width, int height, int maxIterations);
+        int                      generateMandelbrot(); 
+		Mat                      generateJulia(int width, int height, int maxIterations, complex<double> c);                     
+        int                      generateJulia();
+        int 					 generateJuliaParams(int maxIterations, double realPart, double imagPart); 
+        int                      ReadConfigFile();
+        const char*              GetCPPSTDVersion(long int cppVersion);
      public :
         //
+        map<string, string>      configMap;
+
 };

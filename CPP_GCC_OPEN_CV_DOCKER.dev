@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;8;0;0;0
-UnitCount=15
+UnitCount=20
 
 [VersionInfo]
 Major=1
@@ -150,7 +150,7 @@ BuildCmd=
 CompileCpp=1
 
 [Unit18]
-FileName=src\mandelbrot.png
+FileName=src\OpenCVDll.def
 Folder=src
 Compile=0
 Link=0
@@ -159,8 +159,8 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit20]
-FileName=..\CPP_GCC_TENSORFLOW_DOCKER\src\__test\cpp_web_server.exe
-Folder=src/__test
+FileName=src\OpenCvTest.exe
+Folder=src
 Compile=0
 Link=0
 Priority=1000
@@ -266,7 +266,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit16]
-FileName=src\image.png
+FileName=src\CMakeLists.txt
 Folder=src
 Compile=0
 Link=0
@@ -275,7 +275,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit17]
-FileName=src\julia.png
+FileName=src\cpp_web_server.exe
 Folder=src
 Compile=0
 Link=0
@@ -288,6 +288,16 @@ FileName=src\opencv.ini
 Folder=src
 Compile=0
 Link=0
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit19]
+FileName=src\OpenCvTest.cpp
+CompileCpp=1
+Folder=src
+Compile=1
+Link=1
 Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
