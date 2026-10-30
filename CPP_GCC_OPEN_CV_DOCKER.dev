@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;8;0;0;0
-UnitCount=12
+UnitCount=15
 
 [VersionInfo]
 Major=1
@@ -140,8 +140,8 @@ BuildCmd=
 CompileCpp=1
 
 [Unit13]
-FileName=..\CPP_GCC_TENSORFLOW_DOCKER\src\Algorithm.cpp
-Folder=src
+FileName=src\include\Algorithm.h
+Folder=src/include
 Compile=1
 Link=1
 Priority=1000
@@ -246,7 +246,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit14]
-FileName=..\CPP_GCC_TENSORFLOW_DOCKER\src\include\OpenCvDll.h
+FileName=src\include\httplib.h
 CompileCpp=1
 Folder=src/include
 Compile=1
@@ -256,9 +256,9 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit15]
-FileName=..\CPP_GCC_TENSORFLOW_DOCKER\src\OpenCvApp.cpp
+FileName=src\include\OpenCvApp.h
 CompileCpp=1
-Folder=src
+Folder=src/include
 Compile=1
 Link=1
 Priority=1000

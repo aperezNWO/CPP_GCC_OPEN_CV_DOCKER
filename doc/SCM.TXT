@@ -63,23 +63,23 @@ curl.exe http://localhost:8080/getServerVersion
 // DOCKER (INIT DOCKER DESKTOP)
 
 # 0  build - (dot included!!!)
-docker build -t cpp_gcc_tesseracet_docker .        
+docker build -t cpp_gcc_open_cv_docker .        
 		      
 # 1. tag - hub.docker.io			   
-docker tag cpp_gcc_tesseracet_docker apereznwogmail/cpp_gcc_tesseracet_docker:latest
+docker tag cpp_gcc_open_cv_docker apereznwogmail/cpp_gcc_open_cv_docker:latest
 
 # 2. Log in to your Docker Hub account
 docker login
 
 # 3. Push the image to the remote registry
-docker push apereznwogmail/cpp_gcc_tesseracet_docker:latest
+docker push apereznwogmail/cpp_gcc_open_cv_docker:latest
 
 //////////////////////////////////////////////////////
 // render  / chronjob
 //////////////////////////////////////////////////////
 
 // RENDER 
--- [_] docker.io/apereznwogmail/cpp_gcc_algorithm_docker:latest
+-- [_] https://docker.io/apereznwogmail/cpp_gcc_open_cv_docker:latest
 
 // REMOTE TEST
 -- [_] https://fractal-cpp-server-latest-hh6n.onrender.com/GenerateRandomVertex_CPP?p_vertexSize=9&p_sourcePoint=0
@@ -92,7 +92,7 @@ docker push apereznwogmail/cpp_gcc_tesseracet_docker:latest
 ////////////////////////////////////////////////////////////////
 
 git add * 
-git commit -m "[CPP_GCC_TESSERACT_DOCKER] - v[1.0.6]" -m"1) TESSERACT/OCR IMPLEMENTATION"
+git commit -m "[CPP_GCC_OPEN_CV_DOCKER] - v[1.0.1]" -m"1) INITIAL DOCKER PUBLISHING"
 git push
 git pull	
 
