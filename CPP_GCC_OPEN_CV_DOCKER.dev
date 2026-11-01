@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;8;0;0;0
-UnitCount=28
+UnitCount=29
 
 [VersionInfo]
 Major=1
@@ -319,6 +319,16 @@ FileName=src\__test\OpenCvDll.dll
 Folder=01_src_dll/__test
 Compile=0
 Link=0
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit29]
+FileName=src\include\OpenCvDll.h
+CompileCpp=1
+Folder=01_src_dll/include
+Compile=1
+Link=1
 Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
