@@ -1,13 +1,13 @@
 cmake_minimum_required(VERSION 3.18)
 
-project(OpenCvAppExe VERSION 1.0 LANGUAGES CXX)
+project(OpenCvApp VERSION 1.0 LANGUAGES CXX)
 
 # Configuración del estándar de C++
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Directorio donde se generará el archivo ejecutable final
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
 # Directorios de cabeceras de MSYS2 MinGW64 y OpenCV
 include_directories("C:/msys64/mingw64/include")
@@ -21,7 +21,7 @@ add_executable(${PROJECT_NAME} ${SOURCES})
 
 # Asignar el nombre exacto OpenCvApp.exe al binario resultante
 set_target_properties(${PROJECT_NAME} PROPERTIES
-    OUTPUT_NAME "OpenCvApp"
+    OUTPUT_NAME "OpenCvAppV2"
 )
 
 # Enlazar los módulos de OpenCV, soporte multihilo y librerías de red de Windows
