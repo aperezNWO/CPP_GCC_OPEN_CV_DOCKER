@@ -389,7 +389,7 @@ const char* OpenCvApp::GetCPPSTDVersion(long int cppVersion)
 ////////////////////////////////////////////////////////////////
 // DLL ENTRY POINTS
 ////////////////////////////////////////////////////////////////
-
+/*
 //
 DLL_EXPORT const char* GetOpenCvAPIVersion() {
 	//
@@ -460,5 +460,5 @@ DLL_EXPORT int generateJuliaParams(int maxIterations, double realPart, double im
 	//
 	return uniquePtr->generateJuliaParams(maxIterations,realPart,imagPart);
 }
-
+*/
 ////////////////////////////////////////////////////////////////

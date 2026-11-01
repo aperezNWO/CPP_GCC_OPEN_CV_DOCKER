@@ -52,7 +52,7 @@
 
 */
 
-#include "include/OpenCvApp.h"
+#include "include/OpenCvDll.h"
 
 //
 OpenCvApp::OpenCvApp() {

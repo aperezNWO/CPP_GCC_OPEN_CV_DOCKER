@@ -1,6 +1,6 @@
 CMakeFiles/OpenCvDll.dir/OpenCvDll.cpp.obj: \
  D:\usuarios\pabloperez\dev\cpp\CPP_GCC_OPEN_CV_DOCKER\src\OpenCvDll.cpp \
- D:\usuarios\pabloperez\dev\cpp\CPP_GCC_OPEN_CV_DOCKER\src\include/OpenCvApp.h \
+ D:\usuarios\pabloperez\dev\cpp\CPP_GCC_OPEN_CV_DOCKER\src\include/OpenCvDll.h \
  C:/msys64/mingw64/include/opencv4/opencv2/opencv.hpp \
  C:/msys64/mingw64/include/opencv4/opencv2/opencv_modules.hpp \
  C:/msys64/mingw64/include/opencv4/opencv2/core.hpp \
