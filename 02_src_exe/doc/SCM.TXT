@@ -71,6 +71,9 @@ docker login
 # 3. Push the image to the remote registry
 docker push apereznwogmail/cpp_gcc_open_cv_docker:latest
 
+# 4. test image locally
+docker run --rm -p 8080:8080 cpp_gcc_open_cv_docker
+
 //////////////////////////////////////////////////////
 // render  / chronjob
 //////////////////////////////////////////////////////
