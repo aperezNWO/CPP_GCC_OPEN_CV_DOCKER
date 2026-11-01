@@ -1,3 +1,0 @@
-C:\msys64\ucrt64\bin\cmake.exe -E rm -f CMakeFiles\OpenCvDll.dir/objects.a
-C:\msys64\mingw64\bin\ar.exe qc CMakeFiles\OpenCvDll.dir/objects.a @CMakeFiles\OpenCvDll.dir\objects1.rsp
-C:\msys64\mingw64\bin\g++.exe -shared D:\usuarios\pabloperez\dev\cpp\CPP_GCC_OPEN_CV_DOCKER\02_src_exe\OpenCvDll.def -o D:\usuarios\pabloperez\dev\cpp\CPP_GCC_OPEN_CV_DOCKER\02_src_exe\bin\OpenCvDll.dll -Wl,--out-implib,D:\usuarios\pabloperez\dev\cpp\CPP_GCC_OPEN_CV_DOCKER\02_src_exe\bin\OpenCvDll.dll.a -Wl,--major-image-version,0,--minor-image-version,0 -Wl,--whole-archive CMakeFiles\OpenCvDll.dir/objects.a -Wl,--no-whole-archive @CMakeFiles\OpenCvDll.dir\linkLibs.rsp

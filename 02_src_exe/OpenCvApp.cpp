@@ -40,20 +40,35 @@
 
 		// windows
 		
-        mingw32-make
+        cmake --build .
 
 
     6) CMAKE -> INTEGRACION CONTINUA
 
         A) (MODIFICAR ARCHIVOS *.CPP)
-        B) (dentro de la carpate "build")  mingw32-make
+        B) (dentro de la carpate "build")  cmake --build .
         C) output en carpeta \bin
-        C) Publicar via FTP
+        C) Publicar via DOCKER
 
 */
 
-#include "include/OpenCvDll.h"
+#include "include/OpenCvApp.h"
+#include "include/OpenCvApp.h"
+#include "include/httplib.h"
+#include "include/Algorithm.h"
+#include <iostream>
+#include <vector>
+#include <string>
+#include <unordered_map>
+#include <map>
+#include <filesystem>
+#include <fstream>
 
+// Añade esto aquí para que el código reconozca las funciones y tipos de OpenCV sin prefijo
+using namespace cv;
+
+// Añade esto aquí para que el código reconozca las funciones y tipos de OpenCV sin prefijo
+using namespace cv;
 //
 OpenCvApp::OpenCvApp() {
 	//

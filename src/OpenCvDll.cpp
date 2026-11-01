@@ -11,6 +11,8 @@
         a) C:\msys64\mingw64\bin
         b) C:\msys64\mingw64\include\opencv2
 
+	3.1) copy the "C:\msys64\mingw64\include\opencv2" folder on the internal "include" folder of the working source code
+    
     4) Dynamic compilation Command  [STATIC IS NOT POSSIBLE] :
 
     cd /c/Users/pablo.perez/dev/cpp/CPP_GCC_OPEN_CV/src/mingwin
