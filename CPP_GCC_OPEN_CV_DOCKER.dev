@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;8;0;0;0
-UnitCount=21
+UnitCount=28
 
 [VersionInfo]
 Major=1
@@ -149,8 +149,8 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit22]
-FileName=..\CPP_GCC_TENSORFLOW_DOCKER\src\__test\ocr_dll_test.exe
-Folder=src/__test
+FileName=src\__test\image.png
+Folder=01_src_dll/__test
 Compile=0
 Link=0
 Priority=1000
@@ -158,8 +158,8 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit24]
-FileName=..\CPP_GCC_TENSORFLOW_DOCKER\src\__test\tesseract.ini
-Folder=src/__test
+FileName=src\__test\mandelbrot.png
+Folder=01_src_dll/__test
 Compile=0
 Link=0
 Priority=1000
@@ -168,8 +168,8 @@ BuildCmd=
 CompileCpp=1
 
 [Unit25]
-FileName=..\CPP_GCC_TENSORFLOW_DOCKER\src\__test\tessdata\eng.traineddata
-Folder=src/__test/tessdata
+FileName=src\__test\opencv.ini
+Folder=01_src_dll/__test
 Compile=0
 Link=0
 Priority=1000
@@ -178,9 +178,9 @@ BuildCmd=
 CompileCpp=1
 
 [Unit26]
-FileName=..\CPP_GCC_TENSORFLOW_DOCKER\src\input.png
+FileName=src\__test\OpenCVDll.def
 CompileCpp=1
-Folder=src
+Folder=01_src_dll/__test
 Compile=0
 Link=0
 Priority=1000
@@ -188,9 +188,9 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit28]
-FileName=src\tessdata\eng.traineddata
+FileName=src\__test\OpenCvTest.exe
 CompileCpp=1
-Folder=src/tessdata
+Folder=01_src_dll/__test
 Compile=0
 Link=0
 Priority=1000
@@ -208,9 +208,9 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit23]
-FileName=..\CPP_GCC_TENSORFLOW_DOCKER\src\__test\tesseract.dll
+FileName=src\__test\julia.png
 CompileCpp=1
-Folder=src/__test
+Folder=01_src_dll/__test
 Compile=0
 Link=0
 Priority=1000
@@ -308,6 +308,15 @@ BuildCmd=
 [Unit21]
 FileName=.gitignore
 Folder=
+Compile=0
+Link=0
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit27]
+FileName=src\__test\OpenCvDll.dll
+Folder=01_src_dll/__test
 Compile=0
 Link=0
 Priority=1000
