@@ -89,7 +89,7 @@ docker push apereznwogmail/cpp_gcc_open_cv_docker:latest
 ////////////////////////////////////////////////////////////////
 
 git add * 
-git commit -m "[CPP_GCC_OPEN_CV_DOCKER] - v[1.0.3]" -m"1) DOCKER LOCAL TESTING"
+git commit -m "[CPP_GCC_OPEN_CV_DOCKER] - v[1.0.4]" -m"1) DOCKER LOCAL TESTING"
 git push
 git pull	
 
