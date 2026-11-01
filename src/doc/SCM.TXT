@@ -5,14 +5,10 @@
 1) TOOL CHAIN : C:\msys64\ucrt64\bin (CAMBIAR PATH=)
 
 2) MSYS 
- 
-pacman -S mingw-w64-x86_64-toolchain
-pacman -S mingw-w64-x86_64-tesseract
-pacman -S mingw-w64-x86_64-tesseract-data-eng
+
 
 3) COMPILATION EXAMPLE
 
-g++ -std=c++17 -O3 your_program.cpp -o app.exe $(pkg-config --cflags --libs tesseract lept)
 
 ////////////////////////////////////////////////////////////////
 // GIT -- INITIAL CONFIG
@@ -78,7 +74,7 @@ docker push apereznwogmail/cpp_gcc_open_cv_docker:latest
 // render  / chronjob
 //////////////////////////////////////////////////////
 
-// RENDER 
+// DOCKER / RENDER 
 -- [_] https://docker.io/apereznwogmail/cpp_gcc_open_cv_docker:latest
 
 // REMOTE TEST
@@ -92,7 +88,7 @@ docker push apereznwogmail/cpp_gcc_open_cv_docker:latest
 ////////////////////////////////////////////////////////////////
 
 git add * 
-git commit -m "[CPP_GCC_OPEN_CV_DOCKER] - v[1.0.1]" -m"1) INITIAL DOCKER PUBLISHING"
+git commit -m "[CPP_GCC_OPEN_CV_DOCKER] - v[1.0.2]" -m"1) DOCKER LOCAL TESTING"
 git push
 git pull	
 
