@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/OpenCvApp.dir/Algorithm.cpp.obj"
+  "CMakeFiles/OpenCvApp.dir/Algorithm.cpp.obj.d"
   "CMakeFiles/OpenCvApp.dir/OpenCvApp.cpp.obj"
   "CMakeFiles/OpenCvApp.dir/OpenCvApp.cpp.obj.d"
   "OpenCvAppV2.exe"

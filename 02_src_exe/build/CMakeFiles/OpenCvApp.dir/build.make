@@ -43,10 +43,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = C:\msys64\ucrt64\bin\cmake.exe
+CMAKE_COMMAND = C:\msys64\mingw64\bin\cmake.exe
 
 # The command to remove a file.
-RM = C:\msys64\ucrt64\bin\cmake.exe -E rm -f
+RM = C:\msys64\mingw64\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -86,19 +86,94 @@ CMakeFiles/OpenCvApp.dir/OpenCvApp.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/OpenCvApp.dir/OpenCvApp.cpp.s"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\usuarios\pabloperez\dev\cpp\CPP_GCC_OPEN_CV_DOCKER\02_src_exe\OpenCvApp.cpp -o CMakeFiles\OpenCvApp.dir\OpenCvApp.cpp.s
 
+CMakeFiles/OpenCvApp.dir/Algorithm.cpp.obj: CMakeFiles/OpenCvApp.dir/flags.make
+CMakeFiles/OpenCvApp.dir/Algorithm.cpp.obj: CMakeFiles/OpenCvApp.dir/includes_CXX.rsp
+CMakeFiles/OpenCvApp.dir/Algorithm.cpp.obj: D:/usuarios/pabloperez/dev/cpp/CPP_GCC_OPEN_CV_DOCKER/02_src_exe/Algorithm.cpp
+CMakeFiles/OpenCvApp.dir/Algorithm.cpp.obj: CMakeFiles/OpenCvApp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\usuarios\pabloperez\dev\cpp\CPP_GCC_OPEN_CV_DOCKER\02_src_exe\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/OpenCvApp.dir/Algorithm.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OpenCvApp.dir/Algorithm.cpp.obj -MF CMakeFiles\OpenCvApp.dir\Algorithm.cpp.obj.d -o CMakeFiles\OpenCvApp.dir\Algorithm.cpp.obj -c D:\usuarios\pabloperez\dev\cpp\CPP_GCC_OPEN_CV_DOCKER\02_src_exe\Algorithm.cpp
+
+CMakeFiles/OpenCvApp.dir/Algorithm.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/OpenCvApp.dir/Algorithm.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\usuarios\pabloperez\dev\cpp\CPP_GCC_OPEN_CV_DOCKER\02_src_exe\Algorithm.cpp > CMakeFiles\OpenCvApp.dir\Algorithm.cpp.i
+
+CMakeFiles/OpenCvApp.dir/Algorithm.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/OpenCvApp.dir/Algorithm.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\usuarios\pabloperez\dev\cpp\CPP_GCC_OPEN_CV_DOCKER\02_src_exe\Algorithm.cpp -o CMakeFiles\OpenCvApp.dir\Algorithm.cpp.s
+
 # Object files for target OpenCvApp
 OpenCvApp_OBJECTS = \
-"CMakeFiles/OpenCvApp.dir/OpenCvApp.cpp.obj"
+"CMakeFiles/OpenCvApp.dir/OpenCvApp.cpp.obj" \
+"CMakeFiles/OpenCvApp.dir/Algorithm.cpp.obj"
 
 # External object files for target OpenCvApp
 OpenCvApp_EXTERNAL_OBJECTS =
 
 OpenCvAppV2.exe: CMakeFiles/OpenCvApp.dir/OpenCvApp.cpp.obj
+OpenCvAppV2.exe: CMakeFiles/OpenCvApp.dir/Algorithm.cpp.obj
 OpenCvAppV2.exe: CMakeFiles/OpenCvApp.dir/build.make
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_gapi.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_stitching.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_alphamat.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_aruco.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_bgsegm.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_ccalib.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_cvv.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_dnn_objdetect.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_dnn_superres.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_dpm.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_face.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_freetype.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_fuzzy.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_hdf.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_hfs.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_img_hash.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_intensity_transform.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_line_descriptor.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_mcc.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_ovis.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_quality.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_rapid.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_reg.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_rgbd.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_saliency.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_sfm.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_signal.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_stereo.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_structured_light.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_phase_unwrapping.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_superres.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_optflow.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_surface_matching.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_tracking.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_highgui.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_datasets.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_text.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_plot.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_videostab.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_videoio.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_viz.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_wechat_qrcode.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_xfeatures2d.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_shape.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_ml.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_ximgproc.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_video.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_xobjdetect.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_objdetect.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_calib3d.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_imgcodecs.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_features2d.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_dnn.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_flann.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_xphoto.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_photo.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_imgproc.dll.a
+OpenCvAppV2.exe: C:/msys64/mingw64/lib/libopencv_core.dll.a
 OpenCvAppV2.exe: CMakeFiles/OpenCvApp.dir/linkLibs.rsp
 OpenCvAppV2.exe: CMakeFiles/OpenCvApp.dir/objects1.rsp
 OpenCvAppV2.exe: CMakeFiles/OpenCvApp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\usuarios\pabloperez\dev\cpp\CPP_GCC_OPEN_CV_DOCKER\02_src_exe\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable OpenCvAppV2.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\usuarios\pabloperez\dev\cpp\CPP_GCC_OPEN_CV_DOCKER\02_src_exe\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable OpenCvAppV2.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\OpenCvApp.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

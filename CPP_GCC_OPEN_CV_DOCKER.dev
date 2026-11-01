@@ -24,12 +24,12 @@ HostApplication=
 UseCustomMakefile=0
 CustomMakefile=
 CommandLine=
-Folders=01_src_dll,01_src_dll/__dist,01_src_dll/__test,01_src_dll/doc,01_src_dll/include,01_src_dll/lib,02_src_exe,02_src_exe/__test,02_src_exe/include,03_src_docker
+Folders=01_src_dll,01_src_dll/__dist,01_src_dll/__test,01_src_dll/doc,01_src_dll/include,01_src_dll/lib,02_src_exe,02_src_exe/__test,02_src_exe/doc,02_src_exe/include,03_src_docker
 IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;8;0;0;0
-UnitCount=43
+UnitCount=46
 
 [VersionInfo]
 Major=1
@@ -469,17 +469,17 @@ BuildCmd=
 CompileCpp=1
 
 [Unit44]
-FileName=02_src_exe\__test\OpenCvDll.dll
-Folder=02_src_exe/__test
-Compile=0
-Link=0
+FileName=.dockerignore
+Folder=02_src_exe
+Compile=1
+Link=1
 Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
 [Unit45]
-FileName=02_src_exe\__test\OpenCvTest.exe
-Folder=02_src_exe/__test
+FileName=02_src_exe\doc\SCM.TXT
+Folder=02_src_exe/doc
 Compile=0
 Link=0
 Priority=1000
@@ -487,11 +487,11 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit46]
-FileName=02_src_exe\include\Algorithm.h
+FileName=02_src_exe\doc\STRATEGY.txt
 CompileCpp=1
-Folder=02_src_exe/include
-Compile=1
-Link=1
+Folder=02_src_exe/doc
+Compile=0
+Link=0
 Priority=1000
 OverrideBuildCmd=0
 BuildCmd=

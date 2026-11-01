@@ -44,10 +44,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = C:\msys64\ucrt64\bin\cmake.exe
+CMAKE_COMMAND = C:\msys64\mingw64\bin\cmake.exe
 
 # The command to remove a file.
-RM = C:\msys64\ucrt64\bin\cmake.exe -E rm -f
+RM = C:\msys64\mingw64\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -84,12 +84,12 @@ clean: CMakeFiles/OpenCvApp.dir/clean
 CMakeFiles/OpenCvApp.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenCvApp.dir\build.make CMakeFiles/OpenCvApp.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenCvApp.dir\build.make CMakeFiles/OpenCvApp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\usuarios\pabloperez\dev\cpp\CPP_GCC_OPEN_CV_DOCKER\02_src_exe\build\CMakeFiles --progress-num=1,2 "Built target OpenCvApp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\usuarios\pabloperez\dev\cpp\CPP_GCC_OPEN_CV_DOCKER\02_src_exe\build\CMakeFiles --progress-num=1,2,3 "Built target OpenCvApp"
 .PHONY : CMakeFiles/OpenCvApp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/OpenCvApp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\usuarios\pabloperez\dev\cpp\CPP_GCC_OPEN_CV_DOCKER\02_src_exe\build\CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\usuarios\pabloperez\dev\cpp\CPP_GCC_OPEN_CV_DOCKER\02_src_exe\build\CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/OpenCvApp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start D:\usuarios\pabloperez\dev\cpp\CPP_GCC_OPEN_CV_DOCKER\02_src_exe\build\CMakeFiles 0
 .PHONY : CMakeFiles/OpenCvApp.dir/rule
@@ -101,7 +101,7 @@ OpenCvApp: CMakeFiles/OpenCvApp.dir/rule
 # codegen rule for target.
 CMakeFiles/OpenCvApp.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenCvApp.dir\build.make CMakeFiles/OpenCvApp.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\usuarios\pabloperez\dev\cpp\CPP_GCC_OPEN_CV_DOCKER\02_src_exe\build\CMakeFiles --progress-num=1,2 "Finished codegen for target OpenCvApp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\usuarios\pabloperez\dev\cpp\CPP_GCC_OPEN_CV_DOCKER\02_src_exe\build\CMakeFiles --progress-num=1,2,3 "Finished codegen for target OpenCvApp"
 .PHONY : CMakeFiles/OpenCvApp.dir/codegen
 
 # clean rule for target.

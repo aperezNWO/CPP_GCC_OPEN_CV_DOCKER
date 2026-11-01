@@ -1,1 +1,1 @@
--IC:/msys64/mingw64/include -IC:/msys64/mingw64/include/opencv4
+-isystem C:/msys64/mingw64/bin/../include/opencv4

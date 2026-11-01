@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "D:/usuarios/pabloperez/dev/cpp/CPP_GCC_OPEN_CV_DOCKER/02_src_exe/Algorithm.cpp" "CMakeFiles/OpenCvApp.dir/Algorithm.cpp.obj" "gcc" "CMakeFiles/OpenCvApp.dir/Algorithm.cpp.obj.d"
   "D:/usuarios/pabloperez/dev/cpp/CPP_GCC_OPEN_CV_DOCKER/02_src_exe/OpenCvApp.cpp" "CMakeFiles/OpenCvApp.dir/OpenCvApp.cpp.obj" "gcc" "CMakeFiles/OpenCvApp.dir/OpenCvApp.cpp.obj.d"
   )
 

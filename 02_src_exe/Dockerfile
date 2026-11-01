@@ -1,37 +1,28 @@
-# Stage 1: Build the C++ binary
-FROM debian:bookworm-slim AS builder
+# syntax=docker/dockerfile:1
 
-RUN apt-get update && apt-get install -y \
-    g++ \
-    make \
+############ build stage ############
+FROM ubuntu:24.04 AS build
+RUN apt-get update && apt-get install -y --no-install-recommends \
+      build-essential cmake pkg-config libopencv-dev \
     && rm -rf /var/lib/apt/lists/*
 
-##    libtesseract-dev \
-##    tesseract-ocr-eng \
+WORKDIR /src
+COPY CMakeLists.txt ./
+COPY OpenCvApp.cpp Algorithm.cpp ./
+COPY include/ ./include/
+RUN cmake -S . -B build -DCMAKE_BUILD_TYPE=Release \
+ && cmake --build build -j"$(nproc)"
+
+############ runtime stage ############
+FROM ubuntu:24.04
+RUN apt-get update && apt-get install -y --no-install-recommends \
+      libopencv-core406t64 libopencv-imgcodecs406t64 libopencv-imgproc406t64 \
+    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
-COPY . .
-
-# Added -Iinclude so the compiler can locate the include directory properly
-RUN g++ -std=c++17 -O3 CppWebServer.cpp Algorithm.cpp -I.  -o cpp_web_server -lpthread 
-
-# Stage 2: Runtime image
-FROM debian:bookworm-slim
-WORKDIR /app
-
-RUN apt-get update && apt-get install -y \
-     && rm -rf /var/lib/apt/lists/*
-##    libtesseract5 \
-##    tesseract-ocr-eng \
-
-# Copy runtime binaries and config files
-COPY --from=builder /app/opencv.ini     /app/opencv.ini
-COPY --from=builder /app/cpp_web_server /app/cpp_web_server
-COPY --from=builder /app/image.png      /app/image.png
-
-
-# Explicitly tell Tesseract where to find trained data files
-ENV TESSDATA_PREFIX=/app/tessdata
+COPY --from=build /src/build/OpenCvAppV2 ./OpenCvAppV2
+# the app reads these relative to its working directory
+COPY image.png opencv.ini ./
 
 EXPOSE 8080
-CMD ["./cpp_web_server"]
+CMD ["./OpenCvAppV2"]
