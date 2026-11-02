@@ -100,14 +100,13 @@ const char*  OpenCvApp::GetOpenCvAppVersion() {
 	return this->configMap["DLL_VERSION"].c_str();
 }
 
-const char* OpenCvApp::OpenCvReadImage() {
-	
-	#ifdef _WIN32
-	    std::string savedPath = "image.png";
-	#else
-	    std::string savedPath = "/app/image.png";
-	#endif
-	
+std::string OpenCvApp::OpenCvReadImage() {
+    #ifdef _WIN32
+        std::string savedPath = "image.png";
+    #else
+        std::string savedPath = "/app/image.png";
+    #endif
+    
     cv::Mat image = cv::imread(savedPath);
 
     if (image.empty()) {
@@ -127,8 +126,9 @@ const char* OpenCvApp::OpenCvReadImage() {
         }
     }
     
-    return ss.str().c_str(); // Retorna el string de forma segura
+    return ss.str(); // Returns the std::string safely by value
 }
+
 //
 const char* OpenCvApp::OpenCvReadImagePath(const char* path) {
     // static ensures the string memory stays alive after the function returns
@@ -505,12 +505,11 @@ const char* GetOpenCvAppVersion() {
 }
 
 //
-const char* OpenCvReadImage() {
-	//
-	std::unique_ptr<OpenCvApp> uniquePtr = std::make_unique<OpenCvApp>();
-	//
-	return uniquePtr->OpenCvReadImage();
+std::string OpenCvReadImage() {
+    std::unique_ptr<OpenCvApp> uniquePtr = std::make_unique<OpenCvApp>();
+    return uniquePtr->OpenCvReadImage();
 }
+
 
 //
 const char* OpenCvReadImagePath(const char* path) {
@@ -748,13 +747,11 @@ int CppWebServerApp::Run()
 
 
 	// UNIT TEST 
-    svr.Get(endpointDictionary["OPEN_CV_IMAGE_ENDPOINT"].endpointName.c_str(), [](const httplib::Request&, httplib::Response& res) {
-		//
-		std::string jsonResponse  = OpenCvReadImage();
-        res.set_content(jsonResponse, "application/json");
-        res.status = 200;
+	svr.Get(endpointDictionary["OPEN_CV_IMAGE_ENDPOINT"].endpointName.c_str(), [](const httplib::Request&, httplib::Response& res) {
+    	std::string jsonResponse = OpenCvReadImage();
+    	res.set_content(jsonResponse, "application/json");
+    	res.status = 200;
     });
-
 	
 	//
     int port = 8080;

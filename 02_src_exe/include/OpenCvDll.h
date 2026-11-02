@@ -32,7 +32,7 @@ class OpenCvApp
         //
         const char*              GetOpenCvAPIVersion();
         const char*              GetOpenCvAppVersion();
-        const char*              OpenCvReadImage();
+        std::string              OpenCvReadImage();
         const char*              OpenCvReadImagePath(char* path);
         vector<string>           detectShapes(const cv::Mat& inputImage) ; 
         Mat                      generateMandelbrot(int width, int height, int maxIterations);

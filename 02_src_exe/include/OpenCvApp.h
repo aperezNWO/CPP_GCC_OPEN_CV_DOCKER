@@ -50,7 +50,7 @@ public:
 
     const char*              GetOpenCvAPIVersion();
     const char*              GetOpenCvAppVersion();
-    const char*              OpenCvReadImage();
+    std::string              OpenCvReadImage();
     const char*              OpenCvReadImagePath(const char* path);
     std::vector<std::string> detectShapes(const cv::Mat& inputImage);
     cv::Mat                  generateMandelbrot(int width, int height, int maxIterations);
