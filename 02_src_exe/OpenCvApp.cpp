@@ -448,23 +448,49 @@ class CppWebServerApp
 //////////////////////////////////////////////////////////////////////
 
 // Simple Base64 decoder function
-std::vector<unsigned char> base64_decode(const std::string& in) {
-    static const std::string chars = 
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-    std::vector<unsigned char> out;
-    int val = 0, valb = -6;
-    for (unsigned char c : in) {
-        if (c == '=') break;
-        size_t index = chars.find(c);
-        if (index == std::string::npos) continue;
-        val = (val << 6) + index;
-        valb += 6;
-        if (valb >= 0) {
-            out.push_back(static_cast<unsigned char>((val >> valb) & 0xFF));
-            valb -= 8;
+std::string base64_decode(const std::string& input) {
+    const std::string base64_chars = 
+         "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+         "abcdefghijklmnopqrstuvwxyz"
+         "0123456789+/";
+    
+    int in_len = input.size();
+    int i = 0, j = 0, in_ = 0;
+    unsigned char char_array_4[4], char_array_3[3];
+    std::string ret;
+
+    while (in_len-- && (input[in_] != '=') && (isalnum(input[in_]) || input[in_] == '+' || input[in_] == '/')) {
+        char_array_4[i++] = input[in_]; in_++;
+        if (i == 4) {
+            for (i = 0; i < 4; i++)
+                char_array_4[i] = base64_chars.find(char_array_4[i]);
+
+            char_array_3[0] = (char_array_4[0] << 2) + ((char_array_4[1] & 0x30) >> 4);
+            char_array_3[1] = ((char_array_4[1] & 0xf) << 4) + ((char_array_4[2] & 0x3c) >> 2);
+            char_array_3[2] = ((char_array_4[2] & 0x3) << 6) + char_array_4[3];
+
+            for (i = 0; i < 3; i++)
+                ret += char_array_3[i];
+            i = 0;
         }
     }
-    return out;
+
+    if (i) {
+        for (int j = i; j < 4; j++)
+            char_array_4[j] = 0;
+
+        for (int j = 0; j < 4; j++)
+            char_array_4[j] = base64_chars.find(char_array_4[j]);
+
+        char_array_3[0] = (char_array_4[0] << 2) + ((char_array_4[1] & 0x30) >> 4);
+        char_array_3[1] = ((char_array_4[1] & 0xf) << 4) + ((char_array_4[2] & 0x3c) >> 2);
+        char_array_3[2] = ((char_array_4[2] & 0x3) << 6) + char_array_4[3];
+
+        for (int j = 0; j < i - 1; j++)
+            ret += char_array_3[j];
+    }
+
+    return ret;
 }
 
 // Lightweight JSON field extractor for "base64Image"
@@ -707,10 +733,32 @@ int CppWebServerApp::Run()
 			#endif
 
 	  	    std::cout << "loading image on path [" << savedPath  << "]" << std::endl;
-			  		    
-		    std::ofstream outfile(savedPath, std::ios::binary);
-		    outfile.write(req.body.data(), req.body.size());
-		    outfile.close();
+			  	
+		    /*		  	    
+			{
+			    std::ofstream outfile(savedPath, std::ios::binary);
+			    if (!outfile.is_open()) {
+			        res.status = 500;
+			        res.set_content("{\"error\": \"Failed to open file for writing\"}", "application/json");
+			        return;
+			    }
+			    outfile.write(req.body.data(), req.body.size());
+			    outfile.flush();
+			    outfile.close(); // Forzar cierre y liberación de descriptor
+			} */
+			
+			std::string rawData = req.body;
+			size_t commaPos = rawData.find(",");
+			if (commaPos != std::string::npos) {
+			    rawData = rawData.substr(commaPos + 1);
+			}
+			
+	        std::string decodedBytes = base64_decode(rawData);
+
+			std::ofstream outfile(savedPath, std::ios::binary);
+			outfile.write(decodedBytes.data(), decodedBytes.size());
+			outfile.flush();
+			outfile.close();
 	    
 	    	const char * savedPath_cstr = savedPath.c_str();
 			 
