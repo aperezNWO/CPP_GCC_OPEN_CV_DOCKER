@@ -136,7 +136,7 @@ drwxr-xr-x 1 root root   4096 Nov  2 01:37 ..
 ////////////////////////////////////////////////////////////////
 
 git add * 
-git commit -m "[CPP_GCC_OPEN_CV_DOCKER] - v[1.0.4]" -m"1) DOCKER LOCAL TESTING"
+git commit -m "[CPP_GCC_OPEN_CV_DOCKER] - v[1.0.5]" -m"1) OPENCV END POINTS"
 git push
 git pull	
 
