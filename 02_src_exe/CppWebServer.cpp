@@ -224,32 +224,9 @@ int CppWebServerApp::Run()
             res.set_content(jsonResponse, "application/json");
             res.status = 200;
     });
-    
-    
-    // Get API Version
     /*
-    svr.Get(endpointDictionary["TESSERACT_VERSION_ENDPOINT"].endpointName.c_str(), [](const httplib::Request&, httplib::Response& res) {
-  		  	//
-		    std::unique_ptr<TesseractApp> uniquePtr = std::make_unique<TesseractApp>();
-			//
-    		std::string jsonResponse  = uniquePtr->GetTesseractVersion(); 
-    		//
-            res.set_content(jsonResponse, "application/json");
-            res.status = 200;
-    });
-    // UNIT TEST 
-    svr.Get(endpointDictionary["TESSERACT_OCR_IMAGE_ENDPOINT"].endpointName.c_str(), [](const httplib::Request&, httplib::Response& res) {
-   	    //
-	    std::unique_ptr<TesseractApp> uniquePtr = std::make_unique<TesseractApp>();
-		
-		//
-		std::string jsonResponse  = uniquePtr->GetTesseractOcrOutput();
-        res.set_content(jsonResponse, "application/json");
-        res.status = 200;
-    });
-    
-	// UPLOAD IMAGE FROM HTML FORM VIA POST
-	svr.Post(endpointDictionary["TESSERACT_UPLOAD_ENDPOINT"].endpointName.c_str(), [](const httplib::Request& req, httplib::Response& res) {
+    // UPLOAD IMAGE FROM HTML FORM VIA POST
+	svr.Post(endpointDictionary["OPEN_CV_UPLOAD_ENDPOINT"].endpointName.c_str(), [](const httplib::Request& req, httplib::Response& res) {
 	    
 	    if (req.body.empty()) {
 	        res.status = 400;
@@ -305,6 +282,27 @@ int CppWebServerApp::Run()
 	        res.set_content("{\"error\": \"Unknown OCR failure\"}", "application/json");
 	    }
 	});
+    // Get API Version
+    /*
+    svr.Get(endpointDictionary["TESSERACT_VERSION_ENDPOINT"].endpointName.c_str(), [](const httplib::Request&, httplib::Response& res) {
+  		  	//
+		    std::unique_ptr<TesseractApp> uniquePtr = std::make_unique<TesseractApp>();
+			//
+    		std::string jsonResponse  = uniquePtr->GetTesseractVersion(); 
+    		//
+            res.set_content(jsonResponse, "application/json");
+            res.status = 200;
+    });
+    // UNIT TEST 
+    svr.Get(endpointDictionary["TESSERACT_OCR_IMAGE_ENDPOINT"].endpointName.c_str(), [](const httplib::Request&, httplib::Response& res) {
+   	    //
+	    std::unique_ptr<TesseractApp> uniquePtr = std::make_unique<TesseractApp>();
+		
+		//
+		std::string jsonResponse  = uniquePtr->GetTesseractOcrOutput();
+        res.set_content(jsonResponse, "application/json");
+        res.status = 200;
+    });
 	*/
 	
 	//

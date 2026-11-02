@@ -99,22 +99,26 @@ const char*  OpenCvApp::GetOpenCvAppVersion() {
 	//
 	return this->configMap["DLL_VERSION"].c_str();
 }
-//
+
 const char* OpenCvApp::OpenCvReadImage() {
-	const char * result = "OK";
+	
+	#ifdef _WIN32
+	    std::string savedPath = "image.png";
+	#else
+	    std::string savedPath = "/app/image.png";
+	#endif
+	
+    cv::Mat image = cv::imread(savedPath);
 
-	cv::Mat image = cv::imread("image.png");
+    if (image.empty()) {
+        std::cerr << "Could not read the image!" << std::endl;
+        return "Could not read the image 'image.png'";
+    }
 
-	if (image.empty()) {
-		std::cerr << "Could not read the image!" << std::endl;
-		return "Could not read the image 'image.png'";
-	}
+    // Detect shapes in the image
+    std::vector<std::string> shapes = detectShapes(image);
 
-	// Detect shapes in the image
-	std::vector<std::string> shapes = detectShapes(image);
-
-
-	// Use stringstream to build the comma-separated list cleanly
+    // Use stringstream to build the comma-separated list cleanly
     std::stringstream ss;
     for (size_t i = 0; i < shapes.size(); ++i) {
         ss << shapes[i];
@@ -122,15 +126,11 @@ const char* OpenCvApp::OpenCvReadImage() {
             ss << ", "; // Add comma for all but the last element
         }
     }
-    //
-    std::string s_result = ss.str();
-    result               = s_result.c_str();
     
-	//
-	return result;
+    return ss.str().c_str(); // Retorna el string de forma segura
 }
 //
-const char* OpenCvApp::OpenCvReadImagePath(char* path) {
+const char* OpenCvApp::OpenCvReadImagePath(const char* path) {
     // static ensures the string memory stays alive after the function returns
     static std::string result_accumulator; 
     result_accumulator.clear(); // Clear old results from previous runs
@@ -513,7 +513,7 @@ const char* OpenCvReadImage() {
 }
 
 //
-const char* OpenCvReadImagePath(char* path) {
+const char* OpenCvReadImagePath(const char* path) {
 	//
 	std::unique_ptr<OpenCvApp> uniquePtr = std::make_unique<OpenCvApp>();
 	//
@@ -574,8 +574,8 @@ CppWebServerApp::CppWebServerApp()
 	    {"STD_VERSION_ENDPOINT"        , {"/getSTDVersion"              , "Get Standard C++ Version"}},
 	    {"SERVER_VERSION_ENDPOINT"     , {"/getServerVersion"           , "Get Http Server Version"}},
 	    {"OPEN_CV_VERSION_ENDPOINT"    , {"/api/OpenCv/getAPIVersion"   , "Get Tesseract API Version"}},
-	    //{"TESSERACT_UPLOAD_ENDPOINT"     , {"/api/ocr/upload"          , "Upload image from html form via HTTP POST"}},    
-	    //{"TESSERACT_OCR_IMAGE_ENDPOINT"  , {"/api/ocr/getImage"        , "UNIT TESTING"}},       
+	    {"OPEN_CV_UPLOAD_ENDPOINT"     , {"/api/OpenCv/upload"          , "Upload image from html form via HTTP POST"}},    
+	    {"OPEN_CV_IMAGE_ENDPOINT"      , {"/api/OpenCv/getImage"        , "UNIT TESTING"}},       
 	};
 	//
 	this->cppWebServerVersion = this->GetCPPHttpVersion();
@@ -689,24 +689,8 @@ int CppWebServerApp::Run()
             res.set_content(jsonResponse, "application/json");
             res.status = 200;
     });
-
-
-    /*
-
-    
-    // UNIT TEST 
-    svr.Get(endpointDictionary["TESSERACT_OCR_IMAGE_ENDPOINT"].endpointName.c_str(), [](const httplib::Request&, httplib::Response& res) {
-   	    //
-	    std::unique_ptr<TesseractApp> uniquePtr = std::make_unique<TesseractApp>();
-		
-		//
-		std::string jsonResponse  = uniquePtr->GetTesseractOcrOutput();
-        res.set_content(jsonResponse, "application/json");
-        res.status = 200;
-    });
-    
 	// UPLOAD IMAGE FROM HTML FORM VIA POST
-	svr.Post(endpointDictionary["TESSERACT_UPLOAD_ENDPOINT"].endpointName.c_str(), [](const httplib::Request& req, httplib::Response& res) {
+	svr.Post(endpointDictionary["OPEN_CV_UPLOAD_ENDPOINT"].endpointName.c_str(), [](const httplib::Request& req, httplib::Response& res) {
 	    
 	    if (req.body.empty()) {
 	        res.status = 400;
@@ -733,8 +717,7 @@ int CppWebServerApp::Run()
 			 
 	    	std::cout << "Processing upload on path [" << savedPath_cstr << "]" << std::endl;
 	        
-			std::unique_ptr<TesseractApp> uniquePtr = std::make_unique<TesseractApp>();
-	        std::string message     = uniquePtr->GetTesseractOcrOutputPath(savedPath_cstr);
+	        std::string message     = OpenCvReadImagePath(savedPath_cstr);
 	        
 	        // Sanitize the Tesseract message to remove or escape raw newlines
 			std::string sanitizedMessage = message;
@@ -744,7 +727,7 @@ int CppWebServerApp::Run()
 			sanitizedMessage.erase(std::remove(sanitizedMessage.begin(), sanitizedMessage.end(), '\r'), sanitizedMessage.end());
 			
 			//
-			sanitizedMessage             = "Text from C++ (httplib) : " + sanitizedMessage;
+			sanitizedMessage             = "Detected Shapes from C++ (httplib) : " + sanitizedMessage;
 			cout << "[" <<sanitizedMessage << "]" << endl;
 			
 			// final response			
@@ -762,7 +745,16 @@ int CppWebServerApp::Run()
 	        res.set_content("{\"error\": \"Unknown OCR failure\"}", "application/json");
 	    }
 	});
-	*/
+
+
+	// UNIT TEST 
+    svr.Get(endpointDictionary["OPEN_CV_IMAGE_ENDPOINT"].endpointName.c_str(), [](const httplib::Request&, httplib::Response& res) {
+		//
+		std::string jsonResponse  = OpenCvReadImage();
+        res.set_content(jsonResponse, "application/json");
+        res.status = 200;
+    });
+
 	
 	//
     int port = 8080;

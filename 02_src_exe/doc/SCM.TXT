@@ -38,6 +38,38 @@ git push -u origin main
         // COPY C++ COMMAND TO DOCKER FILE	
 			 RUN  <COMMAND_LINE>	
 
+
+   // CMAKE
+
+        md build && cd build
+
+        // dos / powershell
+
+		set PATH=C:\msys64\mingw64\bin;C:\Windows\System32;C:\Windows
+		
+		C:\msys64\mingw64\bin\cmake.exe -G "MinGW Makefiles" ^
+		  -DCMAKE_C_COMPILER=C:/msys64/mingw64/bin/gcc.exe ^
+		  -DCMAKE_CXX_COMPILER=C:/msys64/mingw64/bin/g++.exe ^
+		  -DCMAKE_MAKE_PROGRAM=C:/msys64/mingw64/bin/mingw32-make.exe ^
+		  -DPKG_CONFIG_EXECUTABLE=C:/msys64/mingw64/bin/pkg-config.exe ^
+		  ..
+		  
+        // msys
+
+        cmake -G "MinGW Makefiles" \
+            -DCMAKE_C_COMPILER="C:/msys64/mingw64/bin/gcc.exe" \
+            -DCMAKE_CXX_COMPILER="C:/msys64/mingw64/bin/g++.exe" \
+            ..
+
+		// windows (inside build folder)
+		
+        cmake --build .
+        
+        // Copy output file to test folder
+        // /build/OpenCvAppV2.exe __test/
+        copy *.exe ..\__test
+ 
+        
 ////////////////////////////////////////////////////////////////
 // LOCAL TEST
 ////////////////////////////////////////////////////////////////
@@ -73,6 +105,18 @@ docker push apereznwogmail/cpp_gcc_open_cv_docker:latest
 
 # 4. test image locally
 docker run --rm -p 8080:8080 cpp_gcc_open_cv_docker
+
+# 5. inspect local files
+
+docker run --rm -it --entrypoint /bin/bash cpp_gcc_open_cv_docker
+
+root@acd2e57f0212:/app# ls -la /app
+total 644
+drwxr-xr-x 1 root root   4096 Nov  2 01:09 .
+drwxr-xr-x 1 root root   4096 Nov  2 01:37 ..
+-rwxr-xr-x 1 root root 643952 Nov  2 01:09 OpenCvAppV2
+-rwxr-xr-x 1 root root      0 Nov  1 07:20 image.png
+-rwxr-xr-x 1 root root     17 Nov  1 09:16 opencv.ini
 
 //////////////////////////////////////////////////////
 // render  / chronjob

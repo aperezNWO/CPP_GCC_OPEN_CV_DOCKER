@@ -21,7 +21,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /app
 COPY --from=build /src/build/OpenCvAppV2 ./OpenCvAppV2
-# the app reads these relative to its working directory
 COPY image.png opencv.ini ./
 
 EXPOSE 8080
